@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '.github/workflows/lambda/**'
+      - '.github/workflows/lambda-deploy.yml'
   pull_request:
     types: [closed]
     branches:
@@ -19,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           sparse-checkout: |
-            .github/workflows/lambda
+            .github/workflows
           sparse-checkout-cone-mode: false
           fetch-depth: 1
         
@@ -61,7 +64,7 @@ jobs:
           
           # For sparse checkout, we know we're only checking Lambda files
           # If any files are present in the checkout, they've changed
-          if [ -f ".github/workflows/lambda/lambda_function.py" ] || [ -f ".github/workflows/lambda/lambda-deploy.yml" ]; then
+          if [ -f ".github/workflows/lambda/lambda_function.py" ] || [ -f ".github/workflows/lambda-deploy.yml" ]; then
             echo "Lambda files present in sparse checkout, will update function"
             echo "lambda_files_changed=true" >> $GITHUB_OUTPUT
           else
