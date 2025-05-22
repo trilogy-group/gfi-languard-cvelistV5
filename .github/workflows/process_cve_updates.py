@@ -5,6 +5,7 @@ import sys
 import logging
 import argparse
 import boto3
+import time
 
 # Configure logging
 logging.basicConfig(
@@ -18,6 +19,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Process CVE updates and filter by vendor')
     parser.add_argument('--delta-file', required=True, help='Path to delta.json file')
     parser.add_argument('--vendor-file', required=True, help='Path to vendors.txt file')
+    parser.add_argument('--cve-batch-size', type=int, default=10, help='Number of CVEs to include in each Lambda invocation batch (default: 10)')
     return parser.parse_args()
 
 def load_vendors(vendor_file):
@@ -149,12 +151,13 @@ def process_delta_json(delta_file, vendors):
         logger.error(f"Error processing delta.json file: {str(e)}")
         return []
 
-def invoke_lambda_function(cves):
+def invoke_lambda_function(cves, batch_size=10):
     """
     Invoke the LanGuard-CVE-Update Lambda function with the filtered CVEs
     
     Args:
         cves: List of CVE entries that match the vendor filter
+        batch_size: Number of CVEs to include in each Lambda invocation batch (default: 10)
     """
     try:
         # Check for AWS credentials in environment variables
@@ -174,21 +177,41 @@ def invoke_lambda_function(cves):
             aws_secret_access_key=aws_secret_key
         )
         
-        # Prepare payload for Lambda function
-        payload = {
-            'cves': cves
-        }
+        # Split CVEs into batches based on the specified batch size without trimming any data
+        total_cves = len(cves)
+        num_batches = (total_cves + batch_size - 1) // batch_size  # Ceiling division
         
-        logger.info(f"Invoking Lambda function LanGuard-CVE-Update with {len(cves)} CVEs")
+        logger.info(f"Splitting {total_cves} CVEs into {num_batches} batches of up to {batch_size} CVEs each")
         
-        # Invoke Lambda function
-        response = lambda_client.invoke(
-            FunctionName='LanGuard-CVE-Update',
-            InvocationType='Event',  # Asynchronous invocation
-            Payload=json.dumps(payload)
-        )
+        # Process each batch
+        for i in range(num_batches):
+            # Calculate the start and end indices for this batch
+            start_idx = i * batch_size
+            end_idx = min((i + 1) * batch_size, total_cves)
+            
+            # Create the batch
+            batch = cves[start_idx:end_idx]
+            
+            # Prepare payload for this batch
+            batch_payload = {
+                'cves': batch
+            }
+            
+            logger.info(f"Invoking Lambda function with batch {i+1}/{num_batches} ({len(batch)} CVEs)")
+            
+            # Invoke Lambda function with this batch
+            response = lambda_client.invoke(
+                FunctionName='LanGuard-CVE-Update',
+                InvocationType='Event',  # Asynchronous invocation
+                Payload=json.dumps(batch_payload)
+            )
+            
+            logger.info(f"Batch {i+1}/{num_batches} status code: {response['StatusCode']}")
+            
+            # Add a small delay between batches to avoid throttling
+            if i < num_batches - 1:
+                time.sleep(1)
         
-        logger.info(f"Successfully invoked Lambda function, status code: {response['StatusCode']}")
         
     except Exception as e:
         logger.error(f"Error invoking Lambda function: {str(e)}")
@@ -220,7 +243,7 @@ def main():
     if filtered_cves:
         logger.info(f"Found {len(filtered_cves)} CVEs affecting monitored vendors")
         # Send filtered CVEs to Lambda function
-        invoke_lambda_function(filtered_cves)
+        invoke_lambda_function(filtered_cves, args.cve_batch_size)
     else:
         logger.info("No CVEs found affecting monitored vendors")
 
