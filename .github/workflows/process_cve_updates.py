@@ -4,6 +4,7 @@ import os
 import sys
 import logging
 import argparse
+import boto3
 
 # Configure logging
 logging.basicConfig(
@@ -106,7 +107,13 @@ def process_cve_entries(entries, status, vendors):
             if len(parts) == 3:
                 year = parts[1]
                 id_num = parts[2]
-                xxx_dir = f"{id_num[:1]}xxx"
+                
+                if len(id_num) <= 3:  # If ID is 3 digits or less
+                    xxx_dir = "0xxx"
+                else:
+                    # Take all digits except the last 3
+                    prefix = id_num[:-3]
+                    xxx_dir = f"{prefix}xxx"
                 
                 cve_data = download_cve_file(id_num, year, xxx_dir)
                 if cve_data and is_vendor_affected(cve_data, vendors):
@@ -142,7 +149,50 @@ def process_delta_json(delta_file, vendors):
         logger.error(f"Error processing delta.json file: {str(e)}")
         return []
 
-
+def invoke_lambda_function(cves):
+    """
+    Invoke the LanGuard-CVE-Update Lambda function with the filtered CVEs
+    
+    Args:
+        cves: List of CVE entries that match the vendor filter
+    """
+    try:
+        # Check for AWS credentials in environment variables
+        aws_access_key = os.environ.get('AWS_ACCESS_KEY_ID')
+        aws_secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        aws_region = os.environ.get('AWS_REGION', 'us-east-1')
+        
+        if not aws_access_key or not aws_secret_key:
+            logger.error("AWS credentials not found in environment variables")
+            return
+        
+        # Initialize Lambda client with explicit credentials
+        lambda_client = boto3.client(
+            'lambda',
+            region_name=aws_region,
+            aws_access_key_id=aws_access_key,
+            aws_secret_access_key=aws_secret_key
+        )
+        
+        # Prepare payload for Lambda function
+        payload = {
+            'cves': cves
+        }
+        
+        logger.info(f"Invoking Lambda function LanGuard-CVE-Update with {len(cves)} CVEs")
+        
+        # Invoke Lambda function
+        response = lambda_client.invoke(
+            FunctionName='LanGuard-CVE-Update',
+            InvocationType='Event',  # Asynchronous invocation
+            Payload=json.dumps(payload)
+        )
+        
+        logger.info(f"Successfully invoked Lambda function, status code: {response['StatusCode']}")
+        
+    except Exception as e:
+        logger.error(f"Error invoking Lambda function: {str(e)}")
+        
 def main():
     """Main function to process CVE updates"""
     args = parse_arguments()
@@ -167,7 +217,12 @@ def main():
     # Process delta.json and filter by vendor
     filtered_cves = process_delta_json(delta_file, vendors)
     
-    logger.info(f"Filtered CVEs: {filtered_cves}")
+    if filtered_cves:
+        logger.info(f"Found {len(filtered_cves)} CVEs affecting monitored vendors")
+        # Send filtered CVEs to Lambda function
+        invoke_lambda_function(filtered_cves)
+    else:
+        logger.info("No CVEs found affecting monitored vendors")
 
 if __name__ == "__main__":
     main()
