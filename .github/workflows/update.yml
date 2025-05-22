@@ -1,26 +1,26 @@
 # Github Action for updates to this repository
 
 name: CVE Update
-on:
-  # run every 5~10 minutes (min Github scheduling allowed)
-  # note this may not complete when the hourly "CVE Release" workflow starts,
-  #   so that the updates in this task may not be reflected
-  #   in the CVE Release artifacts running in a separate workflow
-  # note also that if this job runs longer than 5 minutes,
-  #   the next job will run 5 minutes after this completes
-  schedule:
-    - cron: '*/5 * * * *'
-  # Enables manual runs of this workflow from the Actions tab
-  workflow_dispatch:
-    inputs:
-      # logLevel:
-      #   description: 'Log level'
-      #   required: false
-      #   default: 'debug'
-      params:
-        description: 'command line arguments to update'
-        required: false
-        default: ''
+# on:
+#   # run every 5~10 minutes (min Github scheduling allowed)
+#   # note this may not complete when the hourly "CVE Release" workflow starts,
+#   #   so that the updates in this task may not be reflected
+#   #   in the CVE Release artifacts running in a separate workflow
+#   # note also that if this job runs longer than 5 minutes,
+#   #   the next job will run 5 minutes after this completes
+#   schedule:
+#     - cron: '*/5 * * * *'
+#   # Enables manual runs of this workflow from the Actions tab
+#   workflow_dispatch:
+#     inputs:
+#       # logLevel:
+#       #   description: 'Log level'
+#       #   required: false
+#       #   default: 'debug'
+#       params:
+#         description: 'command line arguments to update'
+#         required: false
+#         default: ''
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
