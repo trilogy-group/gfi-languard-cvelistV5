@@ -2,21 +2,21 @@
 
 name: CVE Release
 
-on:
-  # at 0 min after each hour
-  # note this does not include any updates at 0 min after each hour
-  #   since that job will be running in parallel to this.  Those updates will be picked up the following hour.
-  # note also that github does not guarantee specified time, and it can start much later than specified
-  schedule:
-    - cron: '0 * * * *'
+# on:
+#   # at 0 min after each hour
+#   # note this does not include any updates at 0 min after each hour
+#   #   since that job will be running in parallel to this.  Those updates will be picked up the following hour.
+#   # note also that github does not guarantee specified time, and it can start much later than specified
+#   schedule:
+#     - cron: '0 * * * *'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: false
-        default: 'debug'
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+#     inputs:
+#       logLevel:
+#         description: 'Log level'
+#         required: false
+#         default: 'debug'
 jobs:
   generate-name:
     environment: deployment

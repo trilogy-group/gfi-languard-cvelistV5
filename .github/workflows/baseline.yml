@@ -4,21 +4,21 @@
 #   - This action no longer generates a release, since that is now the task of the CVE Release action (release.yml)
 #   - Currently, we fail this job if it runs before midnight
 name: CVE Midnight Baseline
-on:
-  # at midnight (UTC) every night
-  schedule:
-    - cron: '0 0 * * *'
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: false
-        default: 'debug'
-      params:
-        description: 'command line arguments to build a baseline'
-        required: false
-        default: ''
+# on:
+#   # at midnight (UTC) every night
+#   schedule:
+#     - cron: '0 0 * * *'
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+#     inputs:
+#       logLevel:
+#         description: 'Log level'
+#         required: false
+#         default: 'debug'
+#       params:
+#         description: 'command line arguments to build a baseline'
+#         required: false
+#         default: ''
 jobs:
   generate-name:
     environment: development
