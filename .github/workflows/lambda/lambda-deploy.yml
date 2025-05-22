@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.github/workflows/lambda/lambda_function.py'
-      - '.github/workflows/lambda/lambda-deploy.yml'
+  pull_request:
+    types: [closed]
+    branches:
+      - main
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
@@ -16,6 +17,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            .github/workflows/lambda
+          sparse-checkout-cone-mode: false
+          fetch-depth: 1
         
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
@@ -43,16 +49,42 @@ jobs:
           zip -r ../lambda_deployment_package.zip .
           cd ..
           
+      - name: Check for Lambda file changes
+        id: check_lambda_changes
+        run: |
+          # For manual workflow runs or initial creation, always update the function
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "Manual workflow run, will update function"
+            echo "lambda_files_changed=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # For sparse checkout, we know we're only checking Lambda files
+          # If any files are present in the checkout, they've changed
+          if [ -f ".github/workflows/lambda/lambda_function.py" ] || [ -f ".github/workflows/lambda/lambda-deploy.yml" ]; then
+            echo "Lambda files present in sparse checkout, will update function"
+            echo "lambda_files_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No Lambda files in sparse checkout"
+            echo "lambda_files_changed=false" >> $GITHUB_OUTPUT
+          fi
+          
       - name: Deploy Lambda function
         run: |
           # Check if Lambda function exists
           if aws lambda get-function --function-name LanGuard-CVE-Update &> /dev/null; then
-            # Update existing function
-            aws lambda update-function-code \
-              --function-name LanGuard-CVE-Update \
-              --zip-file fileb://lambda_deployment_package.zip
+            # Function exists, check if we need to update it
+            if [[ "${{ steps.check_lambda_changes.outputs.lambda_files_changed }}" == "true" ]]; then
+              echo "Updating existing Lambda function..."
+              aws lambda update-function-code \
+                --function-name LanGuard-CVE-Update \
+                --zip-file fileb://lambda_deployment_package.zip
+            else
+              echo "Lambda function exists and no Lambda files changed, skipping update."
+            fi
           else
-            # Create new function
+            # Create new function regardless of which files changed
+            echo "Creating new Lambda function..."
             aws lambda create-function \
               --function-name LanGuard-CVE-Update \
               --runtime python3.10 \
