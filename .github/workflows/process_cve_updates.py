@@ -84,7 +84,7 @@ def download_cve_file(cve_id, year, xxx_dir):
         logger.error(f"Error loading CVE file {cve_path}: {str(e)}")
         raise  # Raise the exception to trigger retry
 
-def is_vendor_affected(cve_data, vendors):
+def is_vendor_affected(cve_id, cve_data, vendors):
     """Check if any of the monitored vendors are affected by this CVE"""
     if not cve_data or 'containers' not in cve_data:
         return False
@@ -115,7 +115,7 @@ def is_vendor_affected(cve_data, vendors):
                 
                 # Check if any of our monitored vendors match
                 if any(v.lower() in [vendor, product] for v in vendors if vendor or product):
-                    logger.info(f"Found matching vendor: {vendor} or product: {product}")
+                    logger.info(f"{cve_id}: found matching vendor: {vendor} or product: {product}")
                     return True
     except Exception as e:
         logger.error(f"Error checking vendors in CVE data: {str(e)}")
@@ -124,9 +124,9 @@ def is_vendor_affected(cve_data, vendors):
             logger.error(f"Keys in CVE data: {cve_data.keys()}")
     
     if affected_vendors:
-        logger.info(f"No matching vendors found among: {', '.join(affected_vendors)}")
+        logger.info(f"{cve_id}: no matching vendors found among: {', '.join(affected_vendors)}")
     else:
-        logger.info("No vendor information found in CVE data")
+        logger.info(f"{cve_id}: no vendor information found in CVE data")
     return False
 
 def process_cve_entries(entries, status, vendors):
@@ -159,7 +159,7 @@ def process_cve_entries(entries, status, vendors):
                     xxx_dir = f"{prefix}xxx"
                 
                 cve_data = download_cve_file(id_num, year, xxx_dir)
-                if cve_data and is_vendor_affected(cve_data, vendors):
+                if cve_data and is_vendor_affected(cve_id, cve_data, vendors):
                     processed_entries.append({
                         'cveId': cve_id,
                         'data': cve_data,
