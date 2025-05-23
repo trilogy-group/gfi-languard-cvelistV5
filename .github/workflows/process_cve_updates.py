@@ -6,6 +6,8 @@ import logging
 import argparse
 import boto3
 import time
+import random
+from functools import wraps
 
 # Configure logging
 logging.basicConfig(
@@ -13,6 +15,43 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger('cve-monitor')
+
+
+def retry_with_backoff(max_retries=3, initial_backoff=1, backoff_multiplier=2, jitter=0.1):
+    """
+    Decorator for retrying a function with exponential backoff
+    
+    Args:
+        max_retries: Maximum number of retries
+        initial_backoff: Initial backoff time in seconds
+        backoff_multiplier: Multiplier for backoff time after each retry
+        jitter: Random jitter factor to add to backoff time (0-1)
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            retries = 0
+            current_backoff = initial_backoff
+            
+            while True:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    retries += 1
+                    if retries > max_retries:
+                        logger.error(f"Failed after {max_retries} retries: {str(e)}")
+                        raise
+                    
+                    # Add some randomness to the backoff time to prevent thundering herd
+                    jitter_amount = random.uniform(0, jitter * current_backoff)
+                    sleep_time = current_backoff + jitter_amount
+                    
+                    logger.warning(f"Attempt {retries} failed in {func.__name__}: {str(e)}. Retrying in {sleep_time:.2f} seconds...")
+                    time.sleep(sleep_time)
+                    current_backoff *= backoff_multiplier
+                    
+        return wrapper
+    return decorator
 
 def parse_arguments():
     """Parse command line arguments"""
@@ -22,6 +61,7 @@ def parse_arguments():
     parser.add_argument('--cve-batch-size', type=int, default=10, help='Number of CVEs to include in each Lambda invocation batch (default: 10)')
     return parser.parse_args()
 
+@retry_with_backoff(max_retries=3, initial_backoff=1)
 def load_vendors(vendor_file):
     """Load the list of vendors to monitor from vendors.txt"""
     try:
@@ -31,8 +71,9 @@ def load_vendors(vendor_file):
         return vendors
     except Exception as e:
         logger.error(f"Error loading vendors from {vendor_file}: {str(e)}")
-        return []
+        raise  # Raise the exception to trigger retry
 
+@retry_with_backoff(max_retries=3, initial_backoff=1)
 def download_cve_file(cve_id, year, xxx_dir):
     """Download a CVE file from the local repository"""
     try:
@@ -41,7 +82,7 @@ def download_cve_file(cve_id, year, xxx_dir):
             return json.load(f)
     except Exception as e:
         logger.error(f"Error loading CVE file {cve_path}: {str(e)}")
-        return None
+        raise  # Raise the exception to trigger retry
 
 def is_vendor_affected(cve_data, vendors):
     """Check if any of the monitored vendors are affected by this CVE"""
@@ -127,11 +168,17 @@ def process_cve_entries(entries, status, vendors):
     
     return processed_entries
 
+@retry_with_backoff(max_retries=3, initial_backoff=1)
+def read_json_file(file_path):
+    """Read and parse a JSON file with retry capability"""
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
 def process_delta_json(delta_file, vendors):
     """Process the delta.json file and filter CVEs by vendor"""
     try:
-        with open(delta_file, 'r') as f:
-            delta_data = json.load(f)
+        # Use the retry-enabled function to read the delta file
+        delta_data = read_json_file(delta_file)
         
         # Process new and updated CVEs
         cves_to_process = []
@@ -150,6 +197,24 @@ def process_delta_json(delta_file, vendors):
     except Exception as e:
         logger.error(f"Error processing delta.json file: {str(e)}")
         return []
+
+@retry_with_backoff(max_retries=3, initial_backoff=2, backoff_multiplier=3)
+def invoke_lambda_batch(lambda_client, batch_number, total_batches, batch, function_name='LanGuard-CVE-Update'):
+    """Invoke a Lambda function with a batch of CVEs with retry capability"""
+    batch_payload = {
+        'cves': batch
+    }
+    
+    logger.info(f"Invoking Lambda function with batch {batch_number}/{total_batches} ({len(batch)} CVEs)")
+    
+    response = lambda_client.invoke(
+        FunctionName=function_name,
+        InvocationType='Event',  # Asynchronous invocation
+        Payload=json.dumps(batch_payload)
+    )
+    
+    logger.info(f"Batch {batch_number}/{total_batches} status code: {response['StatusCode']}")
+    return response
 
 def invoke_lambda_function(cves, batch_size=10):
     """
@@ -192,26 +257,12 @@ def invoke_lambda_function(cves, batch_size=10):
             # Create the batch
             batch = cves[start_idx:end_idx]
             
-            # Prepare payload for this batch
-            batch_payload = {
-                'cves': batch
-            }
-            
-            logger.info(f"Invoking Lambda function with batch {i+1}/{num_batches} ({len(batch)} CVEs)")
-            
-            # Invoke Lambda function with this batch
-            response = lambda_client.invoke(
-                FunctionName='LanGuard-CVE-Update',
-                InvocationType='Event',  # Asynchronous invocation
-                Payload=json.dumps(batch_payload)
-            )
-            
-            logger.info(f"Batch {i+1}/{num_batches} status code: {response['StatusCode']}")
+            # Use the retry-enabled function to invoke Lambda
+            invoke_lambda_batch(lambda_client, i+1, num_batches, batch)
             
             # Add a small delay between batches to avoid throttling
             if i < num_batches - 1:
                 time.sleep(1)
-        
         
     except Exception as e:
         logger.error(f"Error invoking Lambda function: {str(e)}")
