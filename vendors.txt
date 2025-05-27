@@ -1,1 +1,22 @@
 microsoft
+suse
+red hat
+openssl
+adodb
+nagvis
+totvs
+phpgurukul
+codelibs
+radashi-org
+vbulletin
+sigb
+campcodes
+d-link
+wpdevteam
+inspireui
+netcore
+freefloat
+projectworlds
+timstrifler
+sourcecodester
+funaudiollm
