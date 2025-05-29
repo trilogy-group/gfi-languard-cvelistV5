@@ -199,7 +199,7 @@ def process_delta_json(delta_file, vendors):
         return []
 
 @retry_with_backoff(max_retries=3, initial_backoff=2, backoff_multiplier=3)
-def invoke_lambda_batch(lambda_client, batch_number, total_batches, batch, function_name='LanGuard-CVE-Update'):
+def invoke_lambda_batch(lambda_client, batch_number, total_batches, batch, function_name='cve-processor-lambda'):
     """Invoke a Lambda function with a batch of CVEs with retry capability"""
     batch_payload = {
         'cves': batch
@@ -218,7 +218,7 @@ def invoke_lambda_batch(lambda_client, batch_number, total_batches, batch, funct
 
 def invoke_lambda_function(cves, batch_size=10):
     """
-    Invoke the LanGuard-CVE-Update Lambda function with the filtered CVEs
+    Invoke the cve-processor-lambda Lambda function with the filtered CVEs
     
     Args:
         cves: List of CVE entries that match the vendor filter
