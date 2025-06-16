@@ -1,22 +1,119 @@
-microsoft
-suse
-red hat
-openssl
-adodb
-nagvis
-totvs
-phpgurukul
-codelibs
-radashi-org
-vbulletin
-sigb
-campcodes
-d-link
-wpdevteam
-inspireui
-netcore
-freefloat
-projectworlds
-timstrifler
-sourcecodester
-funaudiollm
+7-zip
+activepython
+adobe
+adobe acrobat
+adobe acrobat pro
+adobe acrobat standard
+adobe air
+adobe flash player
+adobe reader
+adobe shockwave player
+apache
+apache http server
+apache httpd
+audacity
+authenticator
+bandizip
+bitwarden
+box
+brackets
+bullzip
+ccleaner
+cdburnerxp
+certifytheweb
+coreftp
+corretto
+corretto jdk
+duo
+evernote
+filezilla
+firefox
+foxit
+foxit phantompdf
+foxit phantompdf business
+foxit phantompdf standard
+foxit reader
+freefilesync
+gimp
+gotomeeting
+google
+google chrome
+google drive
+google earth
+google picasa
+greenshot
+handbrake
+horizon client
+imgburn
+inkscape
+innosetup
+irfanview
+java
+java runtime environment
+keepass
+kerio
+kerio control
+libreoffice
+malwarebytes
+mariadb
+mozyhome
+mysql
+nitro
+nmap
+notepad++
+openoffice
+opera
+oracle
+oracle jdk
+pdf-xchange
+pdf-xchange editor
+pdf-xchange viewer
+pdfcreator
+paintnet
+peazip
+pidgin
+putty
+python
+quicktime
+rstudio
+realplayer
+realvnc
+realvnc server
+realvnc viewer
+receiver
+stpviewer
+safari
+seamonkey
+skype
+snagit
+spybot
+sumatrapdf
+teamdrive
+teamviewer
+thunderbird
+tightvnc
+tortoisegit
+tortoisehg
+tortoisesvn
+treesizefree
+ultraedit
+ultravnc
+vlc
+vmplayer
+vmworkstation
+virtualbox
+vivaldi
+winmerge
+winrar
+winscp
+winzip
+winamp
+wireshark
+xnview
+yahoo messenger
+zabbix
+zimbra
+zoom
+zulu
+icloud
+itunes
