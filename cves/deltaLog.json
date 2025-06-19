@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-06-19T01:47:57.363Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-50182",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-50182",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/50xxx/CVE-2025-50182.json",
+        "dateUpdated": "2025-06-19T01:42:44.921Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-06-19T01:08:28.655Z",
     "numberOfChanges": 1,
     "new": [
