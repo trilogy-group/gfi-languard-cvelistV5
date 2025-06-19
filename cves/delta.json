@@ -1,12 +1,12 @@
 {
-  "fetchTime": "2025-06-19T15:31:50.618Z",
+  "fetchTime": "2025-06-19T16:21:53.378Z",
   "numberOfChanges": 1,
   "new": [
     {
-      "cveId": "CVE-2006-2192",
-      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2006-2192",
-      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2006/2xxx/CVE-2006-2192.json",
-      "dateUpdated": "2025-06-19T15:26:27.957Z"
+      "cveId": "CVE-2025-50200",
+      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-50200",
+      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/50xxx/CVE-2025-50200.json",
+      "dateUpdated": "2025-06-19T16:14:24.919Z"
     }
   ],
   "updated": [],
