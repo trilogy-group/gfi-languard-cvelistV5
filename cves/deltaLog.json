@@ -1,5 +1,46 @@
 [
   {
+    "fetchTime": "2025-07-30T22:20:32.577Z",
+    "numberOfChanges": 3,
+    "new": [
+      {
+        "cveId": "CVE-2024-11478",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2024-11478",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/11xxx/CVE-2024-11478.json",
+        "dateUpdated": "2025-07-30T22:19:02.730Z"
+      },
+      {
+        "cveId": "CVE-2025-7356",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-7356",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/7xxx/CVE-2025-7356.json",
+        "dateUpdated": "2025-07-30T22:19:03.437Z"
+      }
+    ],
+    "updated": [
+      {
+        "cveId": "CVE-2025-6032",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-6032",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/6xxx/CVE-2025-6032.json",
+        "dateUpdated": "2025-07-30T22:14:47.716Z"
+      }
+    ],
+    "error": []
+  },
+  {
+    "fetchTime": "2025-07-30T22:09:46.219Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-8335",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-8335",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/8xxx/CVE-2025-8335.json",
+        "dateUpdated": "2025-07-30T22:02:06.806Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-07-30T21:40:26.876Z",
     "numberOfChanges": 1,
     "new": [
@@ -110246,75 +110287,6 @@
         "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-6543",
         "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/6xxx/CVE-2025-6543.json",
         "dateUpdated": "2025-06-30T22:20:23.170Z"
-      }
-    ],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-06-30T22:13:38.612Z",
-    "numberOfChanges": 1,
-    "new": [],
-    "updated": [
-      {
-        "cveId": "CVE-2012-6437",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2012-6437",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2012/6xxx/CVE-2012-6437.json",
-        "dateUpdated": "2025-06-30T22:05:18.667Z"
-      }
-    ],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-06-30T22:04:20.110Z",
-    "numberOfChanges": 3,
-    "new": [
-      {
-        "cveId": "CVE-2025-6930",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-6930",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/6xxx/CVE-2025-6930.json",
-        "dateUpdated": "2025-06-30T22:02:06.332Z"
-      }
-    ],
-    "updated": [
-      {
-        "cveId": "CVE-2012-6436",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2012-6436",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2012/6xxx/CVE-2012-6436.json",
-        "dateUpdated": "2025-06-30T21:59:03.474Z"
-      },
-      {
-        "cveId": "CVE-2012-6440",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2012-6440",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2012/6xxx/CVE-2012-6440.json",
-        "dateUpdated": "2025-06-30T22:03:01.214Z"
-      }
-    ],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-06-30T21:51:00.029Z",
-    "numberOfChanges": 1,
-    "new": [],
-    "updated": [
-      {
-        "cveId": "CVE-2012-6438",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2012-6438",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2012/6xxx/CVE-2012-6438.json",
-        "dateUpdated": "2025-06-30T21:47:52.993Z"
-      }
-    ],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-06-30T21:45:00.444Z",
-    "numberOfChanges": 1,
-    "new": [],
-    "updated": [
-      {
-        "cveId": "CVE-2012-6441",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2012-6441",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2012/6xxx/CVE-2012-6441.json",
-        "dateUpdated": "2025-06-30T21:43:45.657Z"
       }
     ],
     "error": []
