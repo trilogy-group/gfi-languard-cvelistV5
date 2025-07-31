@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-07-31T16:51:44.143Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-50866",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-50866",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/50xxx/CVE-2025-50866.json",
+        "dateUpdated": "2025-07-31T16:39:46.174Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-07-31T16:39:31.121Z",
     "numberOfChanges": 3,
     "new": [],
