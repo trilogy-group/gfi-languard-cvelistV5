@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-02T04:37:12.716Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-8146",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-8146",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/8xxx/CVE-2025-8146.json",
+        "dateUpdated": "2025-08-02T04:24:11.591Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-02T04:03:44.574Z",
     "numberOfChanges": 8,
     "new": [],
