@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-04T08:43:58.982Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-8341",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-8341",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/8xxx/CVE-2025-8341.json",
+        "dateUpdated": "2025-08-04T08:34:50.669Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-04T08:14:17.179Z",
     "numberOfChanges": 3,
     "new": [
