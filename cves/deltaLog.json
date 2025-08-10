@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-10T04:04:33.429Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-8793",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-8793",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/8xxx/CVE-2025-8793.json",
+        "dateUpdated": "2025-08-10T04:02:06.295Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-10T03:39:25.190Z",
     "numberOfChanges": 3,
     "new": [
