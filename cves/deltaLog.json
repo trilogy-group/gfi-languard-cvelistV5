@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-14T06:44:42.202Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-8947",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-8947",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/8xxx/CVE-2025-8947.json",
+        "dateUpdated": "2025-08-14T06:32:05.758Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-14T06:03:20.937Z",
     "numberOfChanges": 10,
     "new": [
