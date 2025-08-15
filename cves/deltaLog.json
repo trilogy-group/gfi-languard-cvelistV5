@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-15T19:23:05.644Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-36088",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-36088",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/36xxx/CVE-2025-36088.json",
+        "dateUpdated": "2025-08-15T19:21:15.051Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-15T19:12:54.607Z",
     "numberOfChanges": 13,
     "new": [],
