@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-18T01:12:31.987Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-9099",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9099",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9099.json",
+        "dateUpdated": "2025-08-18T01:02:06.521Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-18T00:43:48.377Z",
     "numberOfChanges": 4,
     "new": [
