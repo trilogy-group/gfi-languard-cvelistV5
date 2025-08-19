@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-19T21:33:47.793Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-9169",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9169",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9169.json",
+        "dateUpdated": "2025-08-19T21:32:06.661Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-19T21:06:11.648Z",
     "numberOfChanges": 1,
     "new": [
