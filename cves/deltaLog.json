@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-22T17:09:00.269Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-57800",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-57800",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/57xxx/CVE-2025-57800.json",
+        "dateUpdated": "2025-08-22T17:02:04.472Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-22T16:54:42.843Z",
     "numberOfChanges": 15,
     "new": [
