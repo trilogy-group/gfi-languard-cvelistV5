@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-08-23T04:39:11.686Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-43765",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-43765",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/43xxx/CVE-2025-43765.json",
+        "dateUpdated": "2025-08-23T04:32:39.432Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-08-23T04:29:03.837Z",
     "numberOfChanges": 12,
     "new": [
