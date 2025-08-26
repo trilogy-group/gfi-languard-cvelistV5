@@ -1,32 +1,26 @@
 {
-  "fetchTime": "2025-08-26T21:20:06.588Z",
-  "numberOfChanges": 4,
-  "new": [],
-  "updated": [
+  "fetchTime": "2025-08-26T22:18:48.200Z",
+  "numberOfChanges": 3,
+  "new": [
     {
-      "cveId": "CVE-2024-24455",
-      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2024-24455",
-      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/24xxx/CVE-2024-24455.json",
-      "dateUpdated": "2025-08-26T21:10:12.027Z"
+      "cveId": "CVE-2025-35113",
+      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-35113",
+      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/35xxx/CVE-2025-35113.json",
+      "dateUpdated": "2025-08-26T22:17:50.086Z"
     },
     {
-      "cveId": "CVE-2024-24457",
-      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2024-24457",
-      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/24xxx/CVE-2024-24457.json",
-      "dateUpdated": "2025-08-26T21:10:55.385Z"
+      "cveId": "CVE-2025-35114",
+      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-35114",
+      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/35xxx/CVE-2025-35114.json",
+      "dateUpdated": "2025-08-26T22:18:12.127Z"
     },
     {
-      "cveId": "CVE-2024-24458",
-      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2024-24458",
-      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/24xxx/CVE-2024-24458.json",
-      "dateUpdated": "2025-08-26T21:11:30.537Z"
-    },
-    {
-      "cveId": "CVE-2024-24459",
-      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2024-24459",
-      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2024/24xxx/CVE-2024-24459.json",
-      "dateUpdated": "2025-08-26T21:11:48.846Z"
+      "cveId": "CVE-2025-35115",
+      "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-35115",
+      "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/35xxx/CVE-2025-35115.json",
+      "dateUpdated": "2025-08-26T22:18:30.538Z"
     }
   ],
+  "updated": [],
   "error": []
 }
