@@ -1,5 +1,33 @@
 [
   {
+    "fetchTime": "2025-10-01T23:42:44.862Z",
+    "numberOfChanges": 1,
+    "new": [],
+    "updated": [
+      {
+        "cveId": "CVE-2025-24133",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-24133",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/24xxx/CVE-2025-24133.json",
+        "dateUpdated": "2025-10-01T23:38:50.485Z"
+      }
+    ],
+    "error": []
+  },
+  {
+    "fetchTime": "2025-10-01T23:36:38.186Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-61588",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-61588",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/61xxx/CVE-2025-61588.json",
+        "dateUpdated": "2025-10-01T23:30:26.257Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-01T22:50:10.282Z",
     "numberOfChanges": 1,
     "new": [],
@@ -99059,34 +99087,6 @@
         "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9806",
         "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9806.json",
         "dateUpdated": "2025-09-02T00:32:07.898Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-01T23:35:35.574Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-9802",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9802",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9802.json",
-        "dateUpdated": "2025-09-01T23:32:07.074Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-01T23:10:07.960Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-9801",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9801",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9801.json",
-        "dateUpdated": "2025-09-01T23:02:06.763Z"
       }
     ],
     "updated": [],
