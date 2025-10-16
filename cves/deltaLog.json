@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-10-16T05:00:40.683Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-0274",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-0274",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/0xxx/CVE-2025-0274.json",
+        "dateUpdated": "2025-10-16T04:56:49.062Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-16T04:33:09.921Z",
     "numberOfChanges": 1,
     "new": [
