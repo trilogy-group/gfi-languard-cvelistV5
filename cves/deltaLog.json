@@ -1,5 +1,26 @@
 [
   {
+    "fetchTime": "2025-10-21T22:36:57.918Z",
+    "numberOfChanges": 2,
+    "new": [
+      {
+        "cveId": "CVE-2025-61756",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-61756",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/61xxx/CVE-2025-61756.json",
+        "dateUpdated": "2025-10-21T22:35:34.981Z"
+      }
+    ],
+    "updated": [
+      {
+        "cveId": "CVE-2025-59230",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-59230",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/59xxx/CVE-2025-59230.json",
+        "dateUpdated": "2025-10-21T22:35:07.504Z"
+      }
+    ],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-21T20:51:29.265Z",
     "numberOfChanges": 3,
     "new": [],
@@ -109720,34 +109741,6 @@
         "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-10771",
         "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/10xxx/CVE-2025-10771.json",
         "dateUpdated": "2025-09-21T23:02:07.444Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-21T22:37:24.893Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-10770",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-10770",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/10xxx/CVE-2025-10770.json",
-        "dateUpdated": "2025-09-21T22:32:06.763Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-21T22:10:22.189Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-10767",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-10767",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/10xxx/CVE-2025-10767.json",
-        "dateUpdated": "2025-09-21T22:02:07.886Z"
       }
     ],
     "updated": [],
