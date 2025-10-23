@@ -1,5 +1,19 @@
 [
   {
+    "fetchTime": "2025-10-23T16:54:36.704Z",
+    "numberOfChanges": 1,
+    "new": [],
+    "updated": [
+      {
+        "cveId": "CVE-2025-11575",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-11575",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/11xxx/CVE-2025-11575.json",
+        "dateUpdated": "2025-10-23T16:53:38.634Z"
+      }
+    ],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-23T16:46:42.445Z",
     "numberOfChanges": 6,
     "new": [],
