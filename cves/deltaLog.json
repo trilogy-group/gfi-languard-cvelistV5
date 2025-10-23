@@ -1,5 +1,39 @@
 [
   {
+    "fetchTime": "2025-10-23T09:16:41.085Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-12105",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-12105",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/12xxx/CVE-2025-12105.json",
+        "dateUpdated": "2025-10-23T09:14:14.077Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
+    "fetchTime": "2025-10-23T09:07:35.808Z",
+    "numberOfChanges": 2,
+    "new": [],
+    "updated": [
+      {
+        "cveId": "CVE-2025-11915",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-11915",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/11xxx/CVE-2025-11915.json",
+        "dateUpdated": "2025-10-23T08:58:31.015Z"
+      },
+      {
+        "cveId": "CVE-2025-11952",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-11952",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/11xxx/CVE-2025-11952.json",
+        "dateUpdated": "2025-10-23T09:04:39.602Z"
+      }
+    ],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-23T08:40:03.259Z",
     "numberOfChanges": 1,
     "new": [
@@ -118523,20 +118557,6 @@
         "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9342",
         "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9342.json",
         "dateUpdated": "2025-09-23T09:18:48.984Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-23T08:46:21.098Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-9798",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-9798",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/9xxx/CVE-2025-9798.json",
-        "dateUpdated": "2025-09-23T08:44:32.504Z"
       }
     ],
     "updated": [],
