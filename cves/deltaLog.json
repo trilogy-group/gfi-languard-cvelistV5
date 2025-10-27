@@ -1,5 +1,39 @@
 [
   {
+    "fetchTime": "2025-10-27T22:33:31.926Z",
+    "numberOfChanges": 2,
+    "new": [
+      {
+        "cveId": "CVE-2025-12333",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-12333",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/12xxx/CVE-2025-12333.json",
+        "dateUpdated": "2025-10-27T22:32:08.847Z"
+      },
+      {
+        "cveId": "CVE-2025-12334",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-12334",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/12xxx/CVE-2025-12334.json",
+        "dateUpdated": "2025-10-27T22:32:11.542Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
+    "fetchTime": "2025-10-27T22:24:06.051Z",
+    "numberOfChanges": 1,
+    "new": [
+      {
+        "cveId": "CVE-2025-62259",
+        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-62259",
+        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/62xxx/CVE-2025-62259.json",
+        "dateUpdated": "2025-10-27T22:13:35.880Z"
+      }
+    ],
+    "updated": [],
+    "error": []
+  },
+  {
     "fetchTime": "2025-10-27T22:04:00.606Z",
     "numberOfChanges": 2,
     "new": [
@@ -121164,20 +121198,6 @@
         "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-11082",
         "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/11xxx/CVE-2025-11082.json",
         "dateUpdated": "2025-09-27T22:32:09.144Z"
-      }
-    ],
-    "updated": [],
-    "error": []
-  },
-  {
-    "fetchTime": "2025-09-27T22:09:46.644Z",
-    "numberOfChanges": 1,
-    "new": [
-      {
-        "cveId": "CVE-2025-11081",
-        "cveOrgLink": "https://www.cve.org/CVERecord?id=CVE-2025-11081",
-        "githubLink": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/11xxx/CVE-2025-11081.json",
-        "dateUpdated": "2025-09-27T22:02:08.438Z"
       }
     ],
     "updated": [],
